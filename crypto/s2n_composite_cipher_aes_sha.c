@@ -205,8 +205,8 @@ static int s2n_composite_cipher_aes128_sha_set_encryption_key(struct s2n_session
 {
     POSIX_ENSURE_EQ(in->size, 16);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_EncryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_128_cbc_hmac_sha1(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -215,8 +215,8 @@ static int s2n_composite_cipher_aes128_sha_set_decryption_key(struct s2n_session
 {
     POSIX_ENSURE_EQ(in->size, 16);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_DecryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_128_cbc_hmac_sha1(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -225,8 +225,8 @@ static int s2n_composite_cipher_aes256_sha_set_encryption_key(struct s2n_session
 {
     POSIX_ENSURE_EQ(in->size, 32);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_EncryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_256_cbc_hmac_sha1(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -235,8 +235,8 @@ static int s2n_composite_cipher_aes256_sha_set_decryption_key(struct s2n_session
 {
     POSIX_ENSURE_EQ(in->size, 32);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_DecryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_256_cbc_hmac_sha1(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -245,8 +245,8 @@ static int s2n_composite_cipher_aes128_sha256_set_encryption_key(struct s2n_sess
 {
     POSIX_ENSURE_EQ(in->size, 16);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_EncryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_128_cbc_hmac_sha256(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -255,8 +255,8 @@ static int s2n_composite_cipher_aes128_sha256_set_decryption_key(struct s2n_sess
 {
     POSIX_ENSURE_EQ(in->size, 16);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_DecryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_128_cbc_hmac_sha256(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -265,8 +265,8 @@ static int s2n_composite_cipher_aes256_sha256_set_encryption_key(struct s2n_sess
 {
     POSIX_ENSURE_EQ(in->size, 32);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_EncryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_256_cbc_hmac_sha256(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -275,8 +275,8 @@ static int s2n_composite_cipher_aes256_sha256_set_decryption_key(struct s2n_sess
 {
     POSIX_ENSURE_EQ(in->size, 32);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     EVP_DecryptInit_ex(key->evp_cipher_ctx, s2n_evp_aes_256_cbc_hmac_sha256(), NULL, in->data, NULL);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }

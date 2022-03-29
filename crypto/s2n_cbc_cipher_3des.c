@@ -57,8 +57,8 @@ static int s2n_cbc_cipher_3des_set_decryption_key(struct s2n_session_key *key, s
 {
     POSIX_ENSURE_EQ(in->size, 192 / 8);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     POSIX_GUARD_OSSL(EVP_DecryptInit_ex(key->evp_cipher_ctx, EVP_des_ede3_cbc(), NULL, in->data, NULL), S2N_ERR_KEY_INIT);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
@@ -67,8 +67,8 @@ static int s2n_cbc_cipher_3des_set_encryption_key(struct s2n_session_key *key, s
 {
     POSIX_ENSURE_EQ(in->size, 192 / 8);
 
-    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, EVP_CIPH_NO_PADDING);
     POSIX_GUARD_OSSL(EVP_EncryptInit_ex(key->evp_cipher_ctx, EVP_des_ede3_cbc(), NULL, in->data, NULL), S2N_ERR_KEY_INIT);
+    EVP_CIPHER_CTX_set_padding(key->evp_cipher_ctx, 0);
 
     return 0;
 }
