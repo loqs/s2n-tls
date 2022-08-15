@@ -124,7 +124,10 @@ fi
 # Select the libcrypto to build s2n against. If this is unset, default to the latest stable version(Openssl 1.1.1)
 if [[ -z $S2N_LIBCRYPTO ]]; then export LIBCRYPTO_ROOT=$OPENSSL_1_1_1_INSTALL_DIR ; fi
 if [[ "$S2N_LIBCRYPTO" == "openssl-1.1.1" ]]; then export LIBCRYPTO_ROOT=$OPENSSL_1_1_1_INSTALL_DIR ; fi
-if [[ "$S2N_LIBCRYPTO" == "openssl-3" ]]; then export LIBCRYPTO_ROOT=$OPENSSL_3_INSTALL_DIR ; fi
+if [[ "$S2N_LIBCRYPTO" == "openssl-3" ]]; then
+    export LIBCRYPTO_ROOT=$OPENSSL_3_INSTALL_DIR ;
+    export OPENSSL_CONF=codebuild/bin/openssl-3-legacy.conf ;
+fi
 if [[ "$S2N_LIBCRYPTO" == "openssl-1.0.2" ]]; then export LIBCRYPTO_ROOT=$OPENSSL_1_0_2_INSTALL_DIR ; fi
 if [[ "$S2N_LIBCRYPTO" == "openssl-1.0.2-fips" ]]; then
     export LIBCRYPTO_ROOT=$OPENSSL_1_0_2_FIPS_INSTALL_DIR ;
